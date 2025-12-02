@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bloglovers Dashboard CMS | Advanced Blog Management</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Jameel Noori Nastaleeq Font -->
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap');
+        /* Note: Jameel Noori Nastaleeq requires a custom font file */
+        @font-face {
+            font-family: 'Jameel Noori Nastaleeq';
+            src: url('assets/fonts/Jameel-Noori-Nastaleeq.ttf') format('truetype');
+            font-weight: normal;
+            font-style: normal;
+        }
+    </style>
+</head>
+<body>
+    <!-- Loading Screen -->
+    <div class="loading-screen">
+        <div class="loading-animation">
+            <div class="spinner"></div>
+            <p>Loading Bloglovers Dashboard...</p>
+        </div>
+    </div>
+
+    <!-- Main Dashboard -->
+    <div class="dashboard-container">
+        <!-- Sidebar Navigation -->
+        <aside class="sidebar">
+            <div class="logo-section">
+                <div class="logo">
+                    <i class="fas fa-blog"></i>
+                    <h1>Bloglovers<span>CMS</span></h1>
+                </div>
+                <div class="theme-toggle">
+                    <i class="fas fa-moon"></i>
+                </div>
+            </div>
+
+            <nav class="main-nav">
+                <ul>
+                    <li class="active" data-section="dashboard">
+                        <i class="fas fa-tachometer-alt"></i>
+                        <span>Dashboard</span>
+                    </li>
+                    <li data-section="create-post">
+                        <i class="fas fa-edit"></i>
+                        <span>Create Post</span>
+                    </li>
+                    <li data-section="posts">
+                        <i class="fas fa-file-alt"></i>
+                        <span>All Posts</span>
+                        <span class="badge">12</span>
+                    </li>
+                    <li data-section="media">
+                        <i class="fas fa-images"></i>
+                        <span>Media Library</span>
+                    </li>
+                    <li data-section="labels">
+                        <i class="fas fa-tags"></i>
+                        <span>Labels</span>
+                        <span class="badge">8</span>
+                    </li>
+                    <li data-section="analytics">
+                        <i class="fas fa-chart-line"></i>
+                        <span>Analytics</span>
+                    </li>
+                    <li data-section="settings">
+                        <i class="fas fa-cog"></i>
+                        <span>Settings</span>
+                    </li>
+                </ul>
+            </nav>
+
+            <div class="user-profile">
+                <div class="profile-img">
+                    <img src="https://i.pravatar.cc/150?img=32" alt="User">
+                </div>
+                <div class="profile-info">
+                    <h4>Blog Author</h4>
+                    <p>Admin</p>
+                </div>
+                <div class="profile-menu">
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main Content Area -->
+        <main class="main-content">
+            <!-- Header -->
+            <header class="header">
+                <div class="header-left">
+                    <h2 id="page-title">Dashboard</h2>
+                    <div class="breadcrumb">
+                        <span>Home</span> / <span id="current-page">Dashboard</span>
+                    </div>
+                </div>
+                <div class="header-right">
+                    <div class="search-box">
+                        <i class="fas fa-search"></i>
+                        <input type="text" placeholder="Search posts, labels, media...">
+                    </div>
+                    <button class="btn publish-btn">
+                        <i class="fas fa-paper-plane"></i>
+                        <span>Publish</span>
+                    </button>
+                    <div class="notification-icon">
+                        <i class="fas fa-bell"></i>
+                        <span class="notification-badge">3</span>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Content Sections -->
+            <div class="content-sections">
+                <!-- Dashboard Section (Default) -->
+                <section id="dashboard-section" class="content-section active">
+                    <div class="welcome-card">
+                        <div class="welcome-text">
+                            <h2>Welcome back, Blogger!</h2>
+                            <p>You have 3 drafts, 12 published posts, and 245 visitors today.</p>
+                        </div>
+                        <div class="welcome-actions">
+                            <button class="btn btn-primary" data-section="create-post">
+                                <i class="fas fa-plus"></i> Create New Post
+                            </button>
+                            <button class="btn btn-outline">
+                                <i class="fas fa-chart-bar"></i> View Analytics
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="stats-grid">
+                        <div class="stat-card">
+                            <div class="stat-icon" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">
+                                <i class="fas fa-eye"></i>
+                            </div>
+                            <div class="stat-info">
+                                <h3>1,245</h3>
+                                <p>Today's Views</p>
+                            </div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-icon" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);">
+                                <i class="fas fa-file-alt"></i>
+                            </div>
+                            <div class="stat-info">
+                                <h3>12</h3>
+                                <p>Published Posts</p>
+                            </div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-icon" style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);">
+                                <i class="fas fa-comments"></i>
+                            </div>
+                            <div class="stat-info">
+                                <h3>42</h3>
+                                <p>Comments</p>
+                            </div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-icon" style="background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);">
+                                <i class="fas fa-share-alt"></i>
+                            </div>
+                            <div class="stat-info">
+                                <h3>89</h3>
+                                <p>Social Shares</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="recent-posts">
+                        <div class="section-header">
+                            <h3>Recent Posts</h3>
+                            <a href="#" class="view-all">View All</a>
+                        </div>
+                        <div class="posts-table">
+                            <!-- Posts will be loaded here via JS -->
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Create Post Section -->
+                <section id="create-post-section" class="content-section">
+                    <div class="editor-container">
+                        <div class="editor-header">
+                            <div class="post-title-input">
+                                <input type="text" id="post-title" placeholder="Post Title">
+                                <div class="title-char-count">0/100</div>
+                            </div>
+                            <div class="editor-actions">
+                                <button class="btn btn-outline" id="save-draft">
+                                    <i class="fas fa-save"></i> Save Draft
+                                </button>
+                                <button class="btn btn-primary" id="preview-post">
+                                    <i class="fas fa-eye"></i> Preview
+                                </button>
+                                <button class="btn btn-publish" id="publish-post">
+                                    <i class="fas fa-paper-plane"></i> Publish
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="editor-toolbar">
+                            <div class="toolbar-group">
+                                <button class="toolbar-btn" data-command="bold" title="Bold">
+                                    <i class="fas fa-bold"></i>
+                                </button>
+                                <button class="toolbar-btn" data-command="italic" title="Italic">
+                                    <i class="fas fa-italic"></i>
+                                </button>
+                                <button class="toolbar-btn" data-command="underline" title="Underline">
+                                    <i class="fas fa-underline"></i>
+                                </button>
+                            </div>
+                            <div class="toolbar-group">
+                                <button class="toolbar-btn" data-command="formatBlock" data-value="h1" title="Heading 1">
+                                    H1
+                                </button>
+                                <button class="toolbar-btn" data-command="formatBlock" data-value="h2" title="Heading 2">
+                                    H2
+                                </button>
+                                <button class="toolbar-btn" data-command="formatBlock" data-value="h3" title="Heading 3">
+                                    H3
+                                </button>
+                            </div>
+                            <div class="toolbar-group">
+                                <button class="toolbar-btn" data-command="insertUnorderedList" title="Bullet List">
+                                    <i class="fas fa-list-ul"></i>
+                                </button>
+                                <button class="toolbar-btn" data-command="insertOrderedList" title="Numbered List">
+                                    <i class="fas fa-list-ol"></i>
+                                </button>
+                            </div>
+                            <div class="toolbar-group">
+                                <button class="toolbar-btn" data-command="createLink" title="Insert Link">
+                                    <i class="fas fa-link"></i>
+                                </button>
+                                <button class="toolbar-btn" id="insert-image" title="Insert Image">
+                                    <i class="fas fa-image"></i>
+                                </button>
+                                <button class="toolbar-btn" id="insert-video" title="Insert Video">
+                                    <i class="fas fa-video"></i>
+                                </button>
+                            </div>
+                            <div class="toolbar-group">
+                                <button class="toolbar-btn" id="text-color" title="Text Color">
+                                    <i class="fas fa-palette"></i>
+                                </button>
+                                <button class="toolbar-btn" id="bg-color" title="Background Color">
+                                    <i class="fas fa-fill-drip"></i>
+                                </button>
+                                <button class="toolbar-btn" id="special-chars" title="Special Characters">
+                                    <i class="fas fa-symbols"></i>
+                                </button>
+                            </div>
+                            <div class="toolbar-group">
+                                <select id="font-family" class="font-select">
+                                    <option value="'Jameel Noori Nastaleeq', 'Roboto', sans-serif">Jameel Noori Nastaleeq</option>
+                                    <option value="Arial, sans-serif">Arial</option>
+                                    <option value="Georgia, serif">Georgia</option>
+                                    <option value="'Courier New', monospace">Courier New</option>
+                                </select>
+                                <select id="font-size" class="font-select">
+                                    <option value="1">Small</option>
+                                    <option value="2">Normal</option>
+                                    <option value="3">Medium</option>
+                                    <option value="4">Large</option>
+                                    <option value="5">Extra Large</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="editor-main">
+                            <div class="editor-area">
+                                <div class="editor-meta">
+                                    <div class="meta-item">
+                                        <label for="post-labels">Labels (comma separated)</label>
+                                        <input type="text" id="post-labels" placeholder="Technology, Blogging, CMS">
+                                    </div>
+                                    <div class="meta-item">
+                                        <label for="search-desc">Search Description</label>
+                                        <textarea id="search-desc" placeholder="Meta description for search engines" rows="2"></textarea>
+                                    </div>
+                                    <div class="meta-item">
+                                        <label for="publish-date">Publish Date</label>
+                                        <input type="datetime-local" id="publish-date">
+                                    </div>
+                                </div>
+                                
+                                <div id="editor-content" class="editor-content" contenteditable="true" data-placeholder="Start writing your post here...">
+                                </div>
+                                
+                                <div class="editor-status">
+                                    <div class="word-count">Words: <span>0</span></div>
+                                    <div class="char-count">Characters: <span>0</span></div>
+                                </div>
+                            </div>
+
+                            <div class="editor-sidebar">
+                                <div class="sidebar-widget">
+                                    <h4>Post Settings</h4>
+                                    <div class="widget-content">
+                                        <div class="setting-option">
+                                            <label>
+                                                <input type="checkbox" id="allow-comments" checked>
+                                                <span>Allow Comments</span>
+                                            </label>
+                                        </div>
+                                        <div class="setting-option">
+                                            <label>
+                                                <input type="checkbox" id="featured-post">
+                                                <span>Featured Post</span>
+                                            </label>
+                                        </div>
+                                        <div class="setting-option">
+                                            <label>Post Status</label>
+                                            <select id="post-status">
+                                                <option value="draft">Draft</option>
+                                                <option value="published">Published</option>
+                                                <option value="scheduled">Scheduled</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="sidebar-widget">
+                                    <h4>Featured Image</h4>
+                                    <div class="widget-content">
+                                        <div class="featured-image-upload">
+                                            <div class="upload-placeholder" id="image-upload-area">
+                                                <i class="fas fa-cloud-upload-alt"></i>
+                                                <p>Click to upload featured image</p>
+                                            </div>
+                                            <input type="file" id="featured-image" accept="image/*" hidden>
+                                        </div>
+                                        <div class="image-options" id="image-options" style="display: none;">
+                                            <label>Image Alignment</label>
+                                            <div class="alignment-options">
+                                                <button class="align-btn" data-align="left">Left</button>
+                                                <button class="align-btn" data-align="center">Center</button>
+                                                <button class="align-btn" data-align="right">Right</button>
+                                            </div>
+                                            <label>Image Size</label>
+                                            <select id="image-size">
+                                                <option value="small">Small</option>
+                                                <option value="medium" selected>Medium</option>
+                                                <option value="large">Large</option>
+                                                <option value="full">Full Width</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="sidebar-widget">
+                                    <h4>Recent Labels</h4>
+                                    <div class="widget-content labels-container">
+                                        <!-- Labels will be loaded here -->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Other sections will be added similarly -->
+                <section id="posts-section" class="content-section">
+                    <div class="section-header">
+                        <h3>All Posts</h3>
+                        <div class="section-actions">
+                            <button class="btn btn-primary" data-section="create-post">
+                                <i class="fas fa-plus"></i> New Post
+                            </button>
+                        </div>
+                    </div>
+                    <div class="posts-table-container">
+                        <!-- Posts table will be loaded here -->
+                    </div>
+                </section>
+            </div>
+        </main>
+    </div>
+
+    <!-- Modals -->
+    <div class="modal" id="image-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Insert Image</h3>
+                <span class="modal-close">&times;</span>
+            </div>
+            <div class="modal-body">
+                <div class="image-upload-options">
+                    <div class="upload-option active" data-option="upload">
+                        <i class="fas fa-upload"></i>
+                        <p>Upload from Computer</p>
+                    </div>
+                    <div class="upload-option" data-option="url">
+                        <i class="fas fa-link"></i>
+                        <p>Insert from URL</p>
+                    </div>
+                    <div class="upload-option" data-option="library">
+                        <i class="fas fa-photo-video"></i>
+                        <p>Media Library</p>
+                    </div>
+                </div>
+                <div class="image-upload-area">
+                    <div id="image-drop-zone">
+                        <i class="fas fa-cloud-upload-alt"></i>
+                        <p>Drag & drop image here or <span class="browse-link">browse</span></p>
+                        <input type="file" id="image-file-input" accept="image/*" hidden>
+                    </div>
+                    <div class="image-url-input" style="display: none;">
+                        <input type="text" id="image-url" placeholder="https://example.com/image.jpg">
+                        <button class="btn btn-primary" id="insert-image-url">Insert Image</button>
+                    </div>
+                    <div class="media-library" style="display: none;">
+                        <div class="media-grid">
+                            <!-- Media items will be loaded here -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Special Characters Modal -->
+    <div class="modal" id="chars-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Insert Special Character</h3>
+                <span class="modal-close">&times;</span>
+            </div>
+            <div class="modal-body">
+                <div class="special-chars-grid">
+                    <!-- Special characters will be loaded here -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Video Insert Modal -->
+    <div class="modal" id="video-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Insert Video</h3>
+                <span class="modal-close">&times;</span>
+            </div>
+            <div class="modal-body">
+                <div class="video-options">
+                    <div class="video-option active" data-option="youtube">
+                        <i class="fab fa-youtube"></i>
+                        <p>YouTube</p>
+                    </div>
+                    <div class="video-option" data-option="vimeo">
+                        <i class="fab fa-vimeo"></i>
+                        <p>Vimeo</p>
+                    </div>
+                    <div class="video-option" data-option="url">
+                        <i class="fas fa-link"></i>
+                        <p>Direct URL</p>
+                    </div>
+                </div>
+                <div class="video-input-area">
+                    <input type="text" id="video-url" placeholder="Paste video URL or embed code">
+                    <div class="video-preview" id="video-preview"></div>
+                    <button class="btn btn-primary" id="insert-video-btn">Insert Video</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="script.js"></script>
+    <script src="editor.js"></script>
+    <script src="data.js"></script>
+</body>
+</html>
