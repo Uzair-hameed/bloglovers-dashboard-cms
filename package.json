@@ -1,0 +1,13 @@
+{
+  "name": "bloglovers-dashboard-cms",
+  "version": "1.0.0",
+  "description": "A modern CMS for bloggers",
+  "scripts": {
+    "dev": "serve .",
+    "start": "serve ."
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "serve": "^14.0.0"
+  }
+}
